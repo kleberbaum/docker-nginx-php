@@ -193,5 +193,5 @@ RUN echo "## Installing base ##" && \
     && chmod u+x /usr/local/bin/* /etc/s6.d/*/* \
     && docker-php-ext-install ${PHP_EXT_LIST} \
     && apk del ${BUILD_DEPS} \
-    && rm -rf /tmp/* /var/cache/apk/* /usr/src/* \
+    && rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
     && mkdir -p /nginx/logs /nginx/run /php/php-fpm.d /php/logs /php/run /php/session
