@@ -1,11 +1,18 @@
-![nginx-php](http://apmblog.dynatrace.com/wp-content/uploads/2014/10/PHP-on-Nginx.jpg)
+# nginx w/ php for Docker
 
-[![Build Status](https://drone.xataz.net/api/badges/xataz/docker-nginx-php/status.svg)](https://drone.xataz.net/xataz/docker-nginx-php)
-[![](https://images.microbadger.com/badges/image/xataz/nginx-php.svg)](https://microbadger.com/images/xataz/nginx-php "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/xataz/nginx-php.svg)](https://microbadger.com/images/xataz/nginx-php "Get your own version badge on microbadger.com")
+[![Build Status](https://travis-ci.org/kleberbaum/docker-nginx-php.svg)](https://travis-ci.org/kleberbaum/docker-nginx-php)
+[![Docker Stars](https://img.shields.io/docker/stars/kleberbaum/nginx-php.svg)](https://hub.docker.com/r/kleberbaum/nginx-php/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/kleberbaum/nginx-php.svg)](https://hub.docker.com/r/kleberbaum/nginx-php/)
+[![ImageLayers](https://images.microbadger.com/badges/image/kleberbaum/nginx-php.svg)](https://microbadger.com/#/images/kleberbaum/nginx-php)
 
-> This image is build and push with [drone.io](https://github.com/drone/drone), a circle-ci like self-hosted.
-> If you don't trust, you can build yourself.
+Size optimised docker image based on [alpine](https://alpinelinux.org/).
+
+Extensively tested on [netcup 2.99€/a VPS](https://www.netcup.de/bestellen/produkt.php?produkt=1710).
+
+#### Upstream Links
+
+* Docker Registry @ [kleberbaum/nginx-php](https://hub.docker.com/r/kleberbaum/teamspeak/)
+* GitHub @ [kleberbaum/docker-nginx-php](https://github.com/kleberbaum/docker-teamspeak)
 
 ## Description
 What is [Nginx](http://nginx.org)?
@@ -39,7 +46,7 @@ docker build -t xataz/nginx-php github.com/xataz/dockerfiles.git#master:nginx-ph
 
 ### Build with arguments
 ```shell
-docker build -t xataz/nginx-php \
+docker build -t kleberbaum/nginx-php \
         --build-arg NGINX_VER=1.10.1 \
         --build-arg PHP_VER=5.6.27 \
         --build-arg PHP_EXT_LIST="gd mysqli gmp" \
@@ -78,7 +85,7 @@ location ~ \.php$ {
 ## Usage
 ### Simple launch
 ```shell
-docker run -d -p 8080:8080 xataz/nginx-php
+docker run -d -p 8080:8080 kleberbaum/nginx-php
 ```
 URI access : http://XX.XX.XX.XX:8080
 
@@ -89,7 +96,7 @@ docker run -d -p 80:8080 -p 443:8443 \
       -v /docker/nginx/certs:/nginx/certs \
 	  -e UID=1001 \
 	  -e GID=1001 \
-	xataz/nginx-php
+	kleberbaum/nginx-php
 ```
 URI access : http://XX.XX.XX.XX
 
